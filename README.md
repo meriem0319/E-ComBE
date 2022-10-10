@@ -36,7 +36,7 @@ THEN I am able to successfully create, update, and delete data in my database
 
 My Walk-through Video Link:
 
-- https://drive.google.com/file/d/1xs07e3vg0cMo8JefRmGJxGXJNloFdL-S/view
+-
 
 My repo link:
 
