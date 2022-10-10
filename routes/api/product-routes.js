@@ -19,7 +19,7 @@ router.get("/", (req, res) => {
       },
     ],
   })
-    .then((dbProductData) => res.json(dbProductData))
+    .then((productData) => res.json(productData))
     .catch((error) => {
       console.log(error);
       res.status(500).json(error);
@@ -45,12 +45,12 @@ router.get("/:id", (req, res) => {
       },
     ],
   })
-    .then((dbProductData) => {
-      if (!dbProductData) {
+    .then((productData) => {
+      if (!productData) {
         res.status(404).json({ message: "This ID does not match any product" });
         return;
       }
-      res.json(dbProductData);
+      res.json(productData);
     })
     .catch((error) => {
       console.log(error);
@@ -139,12 +139,12 @@ router.delete("/:id", (req, res) => {
       id: req.params.id,
     },
   })
-    .then((dbProductData) => {
-      if (!dbProductData) {
+    .then((productData) => {
+      if (!productData) {
         res.status(404).json({ message: "This ID does not match any product" });
         return;
       }
-      res.json(dbProductData);
+      res.json(productData);
     })
     .catch((error) => {
       console.log(error);

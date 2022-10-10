@@ -14,7 +14,7 @@ router.get("/", (req, res) => {
       },
     ],
   })
-    .then((dbCategoryData) => res.json(dbCategoryData))
+    .then((categoryData) => res.json(categoryData))
     .catch((error) => {
       console.log(error);
       res.status(500).json(error);
@@ -35,14 +35,14 @@ router.get("/:id", (req, res) => {
       },
     ],
   })
-    .then((dbCategoryData) => {
-      if (!dbCategoryData) {
+    .then((categoryData) => {
+      if (!categoryData) {
         res
           .status(404)
           .json({ message: "This ID does not match any category" });
         return;
       }
-      res.json(dbCategoryData);
+      res.json(categoryData);
     })
     .catch((error) => {
       console.log(error);
@@ -55,7 +55,7 @@ router.post("/", (req, res) => {
   Category.create({
     category_name: req.params.category_name,
   })
-    .then((dbCategoryData) => res.json(dbCategoryData))
+    .then((categoryData) => res.json(categoryData))
     .catch((error) => {
       console.log(error);
       res.status(500).json(error);
@@ -69,14 +69,14 @@ router.put("/:id", (req, res) => {
       id: req.params.id,
     },
   })
-    .then((dbCategoryData) => {
-      if (!dbCategoryData[0]) {
+    .then((categoryData) => {
+      if (!categoryData[0]) {
         res
           .status(404)
           .json({ message: "This ID does not match any category" });
         return;
       }
-      res.json(dbCategoryData);
+      res.json(categoryData);
     })
     .catch((error) => {
       console.log(error);
@@ -91,14 +91,14 @@ router.delete("/:id", (req, res) => {
       id: req.params.id,
     },
   })
-    .then((dbCategoryData) => {
-      if (!dbCategoryData) {
+    .then((categoryData) => {
+      if (!categoryData) {
         res
           .status(404)
           .json({ message: "This ID does not match any category" });
         return;
       }
-      res.json(dbCategoryData);
+      res.json(categoryData);
     })
     .catch((error) => {
       console.log(error);
